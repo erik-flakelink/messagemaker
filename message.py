@@ -6,5 +6,6 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Exit':
         break
-    window = sg.Window(title="Message" + str(messages), layout=[[sg.InputText(values[0])], [sg.Button('Close')]], margins=(100, 50)).read()
-    messages += 1
+    if event == 'Done':
+        sg.Popup(title="Message" + str(messages), layout=[[sg.InputText(values[0])], [sg.Button('Close')]], margins=(100, 50)).read()
+        messages += 1
